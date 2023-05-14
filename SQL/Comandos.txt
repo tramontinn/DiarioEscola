@@ -1,0 +1,24 @@
+1)
+
+INSERT INTO Aluno (id, nome) VALUES (1, 'Lucas');
+INSERT INTO Responsavel (id, nome) VALUES (1, 'Pablo');
+INSERT INTO Responsavel (id, nome) VALUES (2, 'Brenda');
+INSERT INTO Parentesco (idResponsavel, idAluno, parentesco) VALUES (1, 1, 'Pai');
+INSERT INTO Parentesco (idResponsavel, idAluno, parentesco) VALUES (2, 1, 'Mãe');
+
+
+2)
+
+SELECT a.nome as aluno, r.nome as responsavel, p.parentesco 
+FROM Aluno a
+JOIN Parentesco p ON a.id = p.idAluno
+JOIN Responsavel r ON p.idResponsavel = r.id
+WHERE a.nome = 'Lucas'
+LIMIT 2;
+
+Bônus)
+
+SELECT *
+FROM aluno
+INNER JOIN parentesco ON aluno.id = parentesco.idAluno
+INNER JOIN responsavel ON parentesco.idResponsavel = responsavel.id;
